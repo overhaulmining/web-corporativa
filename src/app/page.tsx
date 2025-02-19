@@ -1,10 +1,14 @@
+import React from 'react'
+import Carrusel from './components/Carrusel'
+import Secciones from "@/app/components/Secciones"
 
-export default function Home() {
+function Page() {
   return (
-    <div className="w-full">
-      <div className="flex justify-between items-center max-w-6xl m-auto">
-
-      </div>
+    <div>
+      <Carrusel/>
+      <Secciones/>
     </div>
-  );
+  )
 }
+
+export default Page
