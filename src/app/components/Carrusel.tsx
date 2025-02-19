@@ -33,10 +33,10 @@ const Carousel = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             handleNext();
-        }, 2000);
+        }, 3000);
 
         return () => clearInterval(timer);
-    }, [currentIndex]);
+    }, []);
 
     const handlePrevious = () => {
         if (!isTransitioning) {
@@ -44,7 +44,7 @@ const Carousel = () => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === 0 ? images.length - 1 : prevIndex - 1
             );
-            setTimeout(() => setIsTransitioning(false), 200);
+            setTimeout(() => setIsTransitioning(false), 3000);
         }
     };
 
@@ -54,15 +54,15 @@ const Carousel = () => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === images.length - 1 ? 0 : prevIndex + 1
             );
-            setTimeout(() => setIsTransitioning(false), 200);
+            setTimeout(() => setIsTransitioning(false), 3000);
         }
     };
 
     return (
-        <div className="relative w-full h-[750px] overflow-hidden">
+        <div className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 120px)" }}>
             {/* Main Image */}
             <div
-                className="absolute w-full h-full transition-transform duration-500 ease-in-out"
+                className="absolute w-screen h-full transition-transform duration-500 ease-in-out"
                 style={{
                     transform: `translateX(-${currentIndex * 100}%)`,
                     display: 'flex',
@@ -82,7 +82,8 @@ const Carousel = () => {
                             height={650}
                             objectFit="cover"  // Adjust the image to cover the container
                             objectPosition="bottom"  // Position the image at the bottom
-                            className="absolute inset-0"
+                            className="absolute inset-0 object-cover w-screen"
+                            style={{ height: "calc(100vh - 120px)" }}
                         />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
                             <h2 className="text-white text-3xl font-bold mb-2">{image.title}</h2>
