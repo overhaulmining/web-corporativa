@@ -1,7 +1,9 @@
 
 import "./globals.css";
 import Navbar from "@/app/components/Navbar"
-import SubNavbar from "@/app/components/SubNavbar"
+import Navegacion from "./components/Navegacion";
+import { Providers } from "./providers";
+
 
 export default function RootLayout({
   children,
@@ -11,13 +13,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="fixed w-screen z-10">
-        <Navbar />
-        <SubNavbar />
-        </div>
-        <div className="pt-28">
-          {children}
-        </div>
+        <Providers>
+          <div >
+            <Navbar />
+            <Navegacion />
+          </div>
+          <div className="">
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );

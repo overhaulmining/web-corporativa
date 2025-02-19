@@ -36,7 +36,7 @@ const Carousel = () => {
         }, 3000);
 
         return () => clearInterval(timer);
-    }, []);
+    },);
 
     const handlePrevious = () => {
         if (!isTransitioning) {
