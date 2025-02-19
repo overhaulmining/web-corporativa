@@ -11,9 +11,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <div className="fixed w-screen z-10">
         <Navbar />
         <SubNavbar />
-        {children}
+        </div>
+        <div className="pt-28">
+          {children}
+        </div>
       </body>
     </html>
   );
