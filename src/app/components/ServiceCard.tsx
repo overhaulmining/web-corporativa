@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
+import Image from 'next/image';
 
 interface ServiceCardProps {
   title: string;
@@ -11,10 +12,12 @@ export function ServiceCard({ title, services, image }: ServiceCardProps) {
   return (
     <div className="bg-gray-800  rounded-xl shadow-lg overflow-hidden">
       <div className="relative h-56 overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={title}
           className="w-full h-full object-cover"
+          height={224}
+          width={448}
         />
       </div>
       <div className="p-6">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ServiceCard } from './ServiceCard';
 import { Truck, PhoneCall, Mail, Target, Eye, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const services = [
   {
@@ -112,10 +113,12 @@ function Secciones() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {galleryImages.map((image, index) => (
               <div key={index} className="relative aspect-square rounded-lg overflow-hidden hover:opacity-90 transition-opacity">
-                <img
+                <Image
                   src={image}
                   alt={`Gallery image ${index + 1}`}
                   className="w-full h-full object-cover"
+                  width={800}
+                  height={800}
                 />
               </div>
             ))}
