@@ -1,8 +1,14 @@
+import React from 'react'
+import Carrusel from './components/Carrusel'
+import Secciones from "@/app/components/Secciones"
 
-export default function Home() {
+function Page() {
   return (
-    <div className="">
-      
+    <div>
+      <Carrusel/>
+      <Secciones/>
     </div>
-  );
+  )
 }
+
+export default Page
