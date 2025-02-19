@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image'; // Importar el componente Image de Next.js
@@ -36,7 +36,7 @@ const Carousel = () => {
         }, 3000);
 
         return () => clearInterval(timer);
-    },);
+    }, []);
 
     const handlePrevious = () => {
         if (!isTransitioning) {
@@ -44,7 +44,6 @@ const Carousel = () => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === 0 ? images.length - 1 : prevIndex - 1
             );
-            setTimeout(() => setIsTransitioning(false), 3000);
         }
     };
 
@@ -54,9 +53,18 @@ const Carousel = () => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === images.length - 1 ? 0 : prevIndex + 1
             );
-            setTimeout(() => setIsTransitioning(false), 3000);
         }
     };
+
+    // Habilitar la transición nuevamente después de 500ms (ajustamos el tiempo para que coincida con la duración de la transición)
+    useEffect(() => {
+        if (isTransitioning) {
+            const timer = setTimeout(() => {
+                setIsTransitioning(false);
+            }, 500); // Este tiempo debe coincidir con la duración de la transición (500ms)
+            return () => clearTimeout(timer);
+        }
+    }, [isTransitioning]);
 
     return (
         <div className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 120px)" }}>
@@ -74,14 +82,13 @@ const Carousel = () => {
                         key={index}
                         className="relative w-full h-full flex-shrink-0"
                     >
-                        {/* Use objectFit="cover" and objectPosition="bottom" to ensure the image covers the container and is positioned at the bottom */}
                         <Image
                             src={image.url}
                             alt={image.title}
                             width={1800}
                             height={650}
-                            objectFit="cover"  // Adjust the image to cover the container
-                            objectPosition="bottom"  // Position the image at the bottom
+                            objectFit="cover"
+                            objectPosition="bottom"
                             className="absolute inset-0 object-cover w-screen"
                             style={{ height: "calc(100vh - 120px)" }}
                         />

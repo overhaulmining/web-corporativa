@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Menu, X, ChevronDown, Briefcase, Book, Users, Phone } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -10,7 +11,6 @@ const Navbar = () => {
   const menuItems = [
     {
       title: 'Servicios',
-      icon: <Briefcase className="w-5 h-5" />,
       submenu: [
         { title: 'Software', href: '#' },
         { title: 'Hardware', href: '#' },
@@ -29,15 +29,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex gap-5 items-center space-x-2">
-            <Image src="/logo.png" alt="Logo" width={120} height={100} />
-            <Image src="/cert_iso-remove.png" alt="Certificación ISO" width={240} height={100} quality={100} />
-
+            <Image src="/logo.png" alt="Logo" width={100} height={100} />
+            <Image src="/cert_iso-remove.png" alt="Certificación ISO" width={200} height={100} quality={100} />
           </div>
 
-
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
+          <div className="hidden md:flex  items-center space-x-8">
+            <Link href="#contact" className="flex items-center space-x-1 text-sm hover:text-gray-500">
               <span>Inicio</span>
             </Link>
             {menuItems.map((item) => (
@@ -46,8 +44,7 @@ const Navbar = () => {
                   onClick={() => toggleDropdown(item.title)}
                   className="flex items-center space-x-1 hover:text-gray-500 focus:outline-none"
                 >
-                  {item.icon}
-                  <span>{item.title}</span>
+                  <span className='text-sm'>{item.title}</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {activeDropdown === item.title && (
@@ -67,18 +64,17 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-             <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
-             <Book className="w-5 h-5" />
-              <span>Cusos End</span>
+            <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
+              <Book className="w-5 h-5" />
+              <span className='text-sm'>Cursos End</span>
             </Link>
             <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
-            <Users className="w-5 h-5" />
-              <span>Nosotros</span>
+              <Users className="w-5 h-5" />
+              <span className='text-sm'>Nosotros</span>
             </Link>
-
             <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
               <Phone className="w-5 h-5" />
-              <span>Contacto</span>
+              <span className='text-sm'>Contacto</span>
             </Link>
           </div>
 
@@ -96,8 +92,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden transition-transform duration-300 ease-in-out transform bg-gray-200 p-4">
+          <div className="space-y-4">
             {menuItems.map((item) => (
               <div key={item.title}>
                 <button
@@ -105,13 +101,12 @@ const Navbar = () => {
                   className="w-full flex items-center justify-between px-3 py-2 rounded-md text-gray-800 hover:bg-gray-300"
                 >
                   <div className="flex items-center space-x-2">
-                    {item.icon}
                     <span>{item.title}</span>
                   </div>
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {activeDropdown === item.title && (
-                  <div className="pl-6 space-y-1">
+                  <div className="pl-6 space-y-2">
                     {item.submenu.map((subItem) => (
                       <Link
                         key={subItem.title}
@@ -125,7 +120,7 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-             <Link
+            <Link
               href="#contact"
               className="flex items-center space-x-2 px-3 py-2 rounded-md text-gray-800 hover:bg-gray-300"
             >

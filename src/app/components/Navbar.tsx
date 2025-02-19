@@ -4,9 +4,7 @@ import React, { useState } from 'react';
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+
 
     return (
         <div>
@@ -29,7 +27,7 @@ function Navbar() {
                                 ricardo.luycho@overhaulmining.com
                             </span>
                         </div>
-                        <div className="space-x-1  items-center hidden lg:block">
+                        <div className="space-x-1 items-center hidden lg:block">
                             <svg className="inline-block h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <g fill="none" stroke="currentColor" >
                                     <circle cx="12" cy="12" r="9" />
@@ -42,14 +40,8 @@ function Navbar() {
                         </div>
                     </div>
 
-                    {/* Menu Hamburguesa para pantallas pequeñas */}
-                    <button className="md:hidden text-white" onClick={toggleMenu}>
-                        <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
 
-                    <div className={`flex gap-5 ${isMenuOpen ? "block" : "hidden"} md:flex`}>
+                    <div className={`flex gap-5 ${isMenuOpen ? "block" : "hidden"} md:flex text-center` }>
                         <div className="hover:bg-[#067AA1] p-2 rounded-lg transition duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396z" />
@@ -72,6 +64,33 @@ function Navbar() {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3" />
                             </svg>
+                        </div>
+                    </div>
+
+                    {/* Menú desplegable con contacto y horarios en móviles */}
+                    <div className={`absolute top-0 left-0 w-full bg-gray-900 p-5 md:hidden ${isMenuOpen ? "block" : "hidden"}`}>
+                        <div className="flex flex-col gap-5">
+                            <div className="flex items-center space-x-1">
+                                <svg className="inline-block h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25c1.12.37 2.32.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02z" />
+                                </svg>
+                                <span>+51 976 225 732</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                                <svg className="inline-block h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0l-8 5l-8-5zm0 12H4V8l8 5l8-5z" />
+                                </svg>
+                                <span>ricardo.luycho@overhaulmining.com</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                                <svg className="inline-block h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g fill="none" stroke="currentColor">
+                                        <circle cx="12" cy="12" r="9" />
+                                        <path d="M11 8v5h5" />
+                                    </g>
+                                </svg>
+                                <span>Lun - Sab: 9:00 - 18:30</span>
+                            </div>
                         </div>
                     </div>
                 </div>
