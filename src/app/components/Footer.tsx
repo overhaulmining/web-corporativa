@@ -14,16 +14,14 @@ const Footer = () => {
               Comprometidos con la excelencia y la innovación en cada proyecto que realizamos.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://www.facebook.com/overhaulmining.eirl" target='blanck' className="text-gray-400 hover:text-white transition-colors">
                 <Facebook size={20} />
-              </a>
+              </Link>
 
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+             
+              <Link href="https://www.linkedin.com/in/overhaul-mining-eirl-908b04191/recent-activity/all/" target='blanck' className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -104,7 +102,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-800">
           <p className="text-center text-gray-400">
-            © {new Date().getFullYear()} Tu Empresa. Todos los derechos reservados.
+            © {new Date().getFullYear()} OverHaul Mining. Todos los derechos reservados.
           </p>
         </div>
       </div>

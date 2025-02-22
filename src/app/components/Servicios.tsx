@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, PhoneCall } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link'; // Importa Link de next/navigation
 
 const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -15,9 +16,10 @@ interface ServiceSectionProps {
     items: string[];
     imageSlot: React.ReactNode;
     buttonText?: string;
+    whatsappLink: string; // Añadido whatsappLink para cada sección
 }
 
-const ServiceSection: React.FC<ServiceSectionProps> = ({ title, items, imageSlot, buttonText = "Contactar ahora" }) => (
+const ServiceSection: React.FC<ServiceSectionProps> = ({ title, items, imageSlot, buttonText = "Contactar ahora", whatsappLink }) => (
     <motion.div
         className="w-full bg-white rounded-lg shadow-xl overflow-hidden mb-12"
         initial={{ opacity: 0, y: 30 }}
@@ -46,14 +48,16 @@ const ServiceSection: React.FC<ServiceSectionProps> = ({ title, items, imageSlot
                     ))}
                 </ul>
 
-                <motion.button
-                    className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-purple-700 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                >
-                    <PhoneCall className="w-4 h-4" />
-                    {buttonText}
-                </motion.button>
+                <Link href={whatsappLink}>  {/* Aquí añadimos el enlace de WhatsApp */}
+                    <motion.button
+                        className="mt-6 bg-blue-600 text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-purple-700 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <PhoneCall className="w-4 h-4" />
+                        {buttonText}
+                    </motion.button>
+                </Link>
             </div>
 
             <div className="md:w-1/2 mt-6 md:mt-0">
@@ -110,6 +114,9 @@ export default function ServicesPage() {
         "Tensores"
     ];
 
+    // Enlace de WhatsApp común
+    const whatsappLink = "https://api.whatsapp.com/send/?phone=51976225732&text=Hola%2C+me+gustar%C3%ADa+recibir+una+cotizaci%C3%B3n+sobre+ensayo+no+destructivos.&type=phone_number&app_absent=0";
+
     return (
         <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
             <motion.h1
@@ -136,6 +143,7 @@ export default function ServicesPage() {
                             />
                         </div>
                     }
+                    whatsappLink={whatsappLink}  // Pasar enlace de WhatsApp
                 />
 
                 <ServiceSection
@@ -154,6 +162,7 @@ export default function ServicesPage() {
                             />
                         </div>
                     }
+                    whatsappLink={whatsappLink}  // Pasar enlace de WhatsApp
                 />
 
                 <ServiceSection
@@ -172,6 +181,7 @@ export default function ServicesPage() {
                             />
                         </div>
                     }
+                    whatsappLink={whatsappLink}  // Pasar enlace de WhatsApp
                 />
             </div>
 

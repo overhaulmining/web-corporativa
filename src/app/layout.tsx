@@ -22,7 +22,9 @@ export default function RootLayout({
           <div className="relative w-full top-28">
             {children}
           </div>
+          <div className="relative top-28 w-full bottom-0 z-50">
           <Footer />
+          </div>
         </Providers>
       </body>
     </html>
