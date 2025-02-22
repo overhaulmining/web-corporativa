@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to bg-gray-200 text-gray-800 py-3">
+    <nav className="bg-gradient-to bg-gray-200 text-gray-800 py-3 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -35,44 +35,22 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex  items-center space-x-8">
-            <Link href="#contact" className="flex items-center space-x-1 text-sm hover:text-gray-500">
+            <Link href="/" className="flex items-center space-x-1 text-sm hover:text-gray-500">
               <span>Inicio</span>
             </Link>
-            {menuItems.map((item) => (
-              <div key={item.title} className="relative group">
-                <button
-                  onClick={() => toggleDropdown(item.title)}
-                  className="flex items-center space-x-1 hover:text-gray-500 focus:outline-none"
-                >
-                  <span className='text-sm'>{item.title}</span>
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-                {activeDropdown === item.title && (
-                  <div className="absolute z-50 left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                    <div className="py-1">
-                      {item.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.title}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          {subItem.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-            <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
+
+            <Link href="/servicios" className="flex items-center space-x-1 hover:text-gray-500">
+              <span className='text-sm'>Servicios</span>
+            </Link>
+            <Link href="/cursos" className="flex items-center space-x-1 hover:text-gray-500">
               <Book className="w-5 h-5" />
               <span className='text-sm'>Cursos End</span>
             </Link>
-            <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
+            <Link href="#nosotros" className="flex items-center space-x-1 hover:text-gray-500">
               <Users className="w-5 h-5" />
               <span className='text-sm'>Nosotros</span>
             </Link>
-            <Link href="#contact" className="flex items-center space-x-1 hover:text-gray-500">
+            <Link href="#contacto" className="flex items-center space-x-1 hover:text-gray-500">
               <Phone className="w-5 h-5" />
               <span className='text-sm'>Contacto</span>
             </Link>
@@ -121,21 +99,21 @@ const Navbar = () => {
               </div>
             ))}
             <Link
-              href="#contact"
+              href="/cursos"
               className="flex items-center space-x-2 px-3 py-2 rounded-md text-gray-800 hover:bg-gray-300"
             >
               <Book className="w-5 h-5" />
               <span>Cursos End</span>
             </Link>
             <Link
-              href="#contact"
+              href="#nosotros"
               className="flex items-center space-x-2 px-3 py-2 rounded-md text-gray-800 hover:bg-gray-300"
             >
               <Users className="w-5 h-5" />
               <span>Nosotros</span>
             </Link>
             <Link
-              href="#contact"
+              href="#contacto"
               className="flex items-center space-x-2 px-3 py-2 rounded-md text-gray-800 hover:bg-gray-300"
             >
               <Phone className="w-5 h-5" />

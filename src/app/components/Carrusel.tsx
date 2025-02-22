@@ -5,24 +5,24 @@ import Image from 'next/image'; // Importar el componente Image de Next.js
 
 const images = [
     {
-        url: "/img/escabadora.jpg",
+        url: "/Capacitacion-.jpeg",
         title: "Excavadora Industrial",
-        description: "Maquinaria pesada para excavación minera"
+        
     },
     {
-        url: "/img/camion-minero.jpg",
+        url: "/Cetrificacion-Izaje.jpeg",
         title: "Camión Minero",
-        description: "Transporte de materiales pesados"
+       
     },
     {
-        url: "/img/industria.jpg",
+        url: "/trabajando.jpg",
         title: "Grúa Industrial",
-        description: "Equipamiento para elevación de cargas"
+        
     },
     {
-        url: "/img/perforadora.jpg",
+        url: "/maquinaria.jpg",
         title: "Perforadora Industrial",
-        description: "Equipo especializado para minería"
+        
     }
 ];
 
@@ -93,8 +93,7 @@ const Carousel = () => {
                             style={{ height: "calc(100vh - 120px)" }}
                         />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
-                            <h2 className="text-white text-3xl font-bold mb-2">{image.title}</h2>
-                            <p className="text-white text-lg">{image.description}</p>
+                            
                         </div>
                     </div>
                 ))}

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/app/components/Navbar"
 import Navegacion from "./components/Navegacion";
 import { Providers } from "./providers";
+import Footer from "./components/Footer";
 
 
 export default function RootLayout({
@@ -14,13 +15,14 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <div >
+          <div className="fixed w-full z-50">
             <Navbar />
             <Navegacion />
           </div>
-          <div className="">
+          <div className="relative w-full top-28">
             {children}
           </div>
+          <Footer />
         </Providers>
       </body>
     </html>
