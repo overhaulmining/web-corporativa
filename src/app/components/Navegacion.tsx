@@ -1,23 +1,13 @@
 "use client"
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown, Briefcase, Book, Users, Phone } from 'lucide-react';
+import { Menu, X,  Book, Users, Phone } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const menuItems = [
-    {
-      title: 'Servicios'
 
-    },
-  ];
-
-  const toggleDropdown = (title: string) => {
-    setActiveDropdown(activeDropdown === title ? null : title);
-  };
 
   return (
     <nav className="bg-gradient-to bg-gray-200 text-gray-800 py-3 w-full">

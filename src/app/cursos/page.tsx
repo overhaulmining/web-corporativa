@@ -1,7 +1,8 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, MapPin, Mail, Phone, Award, BookOpen, Users, CheckCircle } from 'lucide-react';
+import { Calendar, Clock, MapPin, Mail, Phone, Award, CheckCircle } from 'lucide-react';
+import Image from 'next/image';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -27,10 +28,12 @@ const CourseCard = ({ title, date, time, level, imageUrl, benefits }: CourseCard
     transition={{ duration: 0.5 }}
   >
     <div className="relative">
-      <img 
+      <Image 
         src={imageUrl} 
         alt={title}
         className="w-full h-48 object-cover"
+        width={800}
+        height={400}
       />
       <div className="absolute top-4 right-4 bg-blue-700 text-white px-3 py-1 rounded-full text-sm">
         Próximamente
@@ -94,10 +97,12 @@ const InstructorSection = () => (
     <h2 className="text-2xl font-bold text-gray-800 mb-4">Instructor Principal</h2>
     <div className="flex flex-col md:flex-row gap-6 items-center">
       <div className="w-32 h-32 rounded-full overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&fit=crop&q=80"
+        <Image
+          src="/ensanos-no-destructivos.jpeg"
           alt="Octavio Arce"
           className="w-full h-full object-cover"
+          width={400}
+          height={400}
         />
       </div>
       <div>
