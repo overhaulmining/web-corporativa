@@ -5,24 +5,24 @@ import Image from 'next/image'; // Importar el componente Image de Next.js
 
 const images = [
     {
-        url: "/Capacitacion-.jpeg",
-        title: "Excavadora Industrial",
-        
+        url: "/capacitacion.png",
+        title: "Maquinarias Especializadas",
+        description: "Servicio - Trabajo de calidad"
     },
     {
-        url: "/Cetrificacion-Izaje.jpeg",
-        title: "Camión Minero",
-       
+        url: "/img/mina.jpeg",
+        title: "Gruas especializadas",
+        description: "Equipos dedicados "
     },
     {
-        url: "/trabajando.jpg",
-        title: "Grúa Industrial",
-        
+        url: "/img/trabajo-campo.png",
+        title: "Trabajo Efectivo",
+        description: "Eficiencia y rapides"
     },
     {
-        url: "/maquinaria.jpg",
-        title: "Perforadora Industrial",
-        
+        url: "/image-carrusel/image4.png",
+        title: "Equipo especializado",
+        description: "Servicio rapido y eficiente"
     }
 ];
 
@@ -90,10 +90,14 @@ const Carousel = () => {
                             objectFit="cover"
                             objectPosition="bottom"
                             className="absolute inset-0 object-cover w-screen"
-                            style={{ height: "calc(100vh - 120px)" }}
+                            style={{
+                                height: "calc(100vh - 120px)",
+                                filter: 'brightness(60%)' // Reducir el brillo para darle más opacidad
+                            }}
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
-                            
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+                            <p className='text-5xl text-white font-extrabold'>{image.title}</p>
+                            <p className='text-3xl text-white font-bold'>{image.description}</p>
                         </div>
                     </div>
                 ))}
@@ -122,8 +126,8 @@ const Carousel = () => {
                         key={index}
                         onClick={() => setCurrentIndex(index)}
                         className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index
-                                ? 'bg-white w-8'
-                                : 'bg-white/50 hover:bg-white/80'
+                            ? 'bg-white w-8'
+                            : 'bg-white/50 hover:bg-white/80'
                             }`}
                     />
                 ))}

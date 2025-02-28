@@ -15,8 +15,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex gap-5 items-center space-x-2">
-            <Image src="/logo.png" alt="Logo" width={100} height={100} />
-            <Image src="/cert_iso-remove.png" alt="Certificación ISO" width={200} height={100} quality={100} />
+            <Image src="/logo.png" alt="Logo" width={100} height={100} priority quality={100}/>
+            <Image src="/cert_iso-remove.png" alt="Certificación ISO" width={200} height={100} quality={100} priority/>
           </div>
 
           {/* Desktop Menu */}
