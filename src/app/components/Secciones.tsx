@@ -3,6 +3,7 @@ import { ServiceCard } from './ServiceCard';
 import { Truck, PhoneCall, Mail, Target, Eye, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SeccionServices from './SeccionServices';
 
 const services = [
   {
@@ -107,6 +108,9 @@ function Secciones() {
           </div>
         </div>
       </div>
+
+      <SeccionServices/>
+
 
       {/* Gallery Section */}
       <div className="bg-white py-16">

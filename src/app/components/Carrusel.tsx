@@ -6,13 +6,13 @@ import Image from 'next/image'; // Importar el componente Image de Next.js
 const images = [
     {
         url: "/capacitacion.png",
-        title: "Maquinarias Especializadas",
-        description: "Servicio - Trabajo de calidad"
+        title: "CAPACITACIÓN Y CERTIFICACIÓN DE PERSONAL IZAJE",
+        description: "Operador Grua puente - Operador Grua telescopica"
     },
     {
         url: "/img/mina.jpeg",
-        title: "Gruas especializadas",
-        description: "Equipos dedicados "
+        title: "Gruas puentes - Gruas movil",
+        description: "Equipos dedicados y especializados"
     },
     {
         url: "/img/trabajo-campo.png",
