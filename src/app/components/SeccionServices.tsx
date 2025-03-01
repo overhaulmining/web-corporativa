@@ -3,28 +3,28 @@ import React from 'react';
 //import Carousel from './components/Carousel';
 import ServiceCardCarousel from './serviceCardCarrusel';
 import Link from 'next/link';
-
+import Image from 'next/image';
 
 function SeccionServices() {
 
 
   // Imágenes para los carruseles de las tarjetas de servicios
   const equipmentCertificationImages = [
-    <img key="crane" src="/img/maquinaria-grua.jpg" alt="Grúa" className="h-full w-full object-cover" />,
-    <img key="crane" src="/img/persona-mina.jpeg" alt="persona-mina" className="h-full w-full object-cover" />,
-    <img key="crane" src="/img/mina.jpeg" alt="Grúa" className="h-full w-full object-cover" />
+    <Image key="crane" src="/img/maquinaria-grua.jpg" alt="Grúa" className="h-full w-full object-cover" />,
+    <Image key="crane" src="/img/persona-mina.jpeg" alt="persona-mina" className="h-full w-full object-cover" />,
+    <Image key="crane" src="/img/mina.jpeg" alt="Grúa" className="h-full w-full object-cover" />
   ];
 
   const personnelCertificationImages = [
-    <img key="operator" src="/img/izaje.jpeg" alt="Operador" className="h-full w-full object-cover" />,
-    <img key="operator" src="/img/izaje2.jpg" alt="Operador" className="h-full w-full object-cover" />,
-    <img key="operator" src="/img/izaje3.jpg" alt="Operador" className="h-full w-full object-cover" />
+    <Image key="operator" src="/img/izaje.jpeg" alt="Operador" className="h-full w-full object-cover" />,
+    <Image key="operator" src="/img/izaje2.jpg" alt="Operador" className="h-full w-full object-cover" />,
+    <Image key="operator" src="/img/izaje3.jpg" alt="Operador" className="h-full w-full object-cover" />
   ];
 
   const maintenanceImages = [
-    <img key="maintenance" src="/img/mantenimiento1.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />,
-    <img key="maintenance" src="/img/mantenimiento2.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />,
-    <img key="maintenance" src="/img/mantenimiento3.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />
+    <Image key="maintenance" src="/img/mantenimiento1.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />,
+    <Image key="maintenance" src="/img/mantenimiento2.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />,
+    <Image key="maintenance" src="/img/mantenimiento3.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />
   ];
 
   return (

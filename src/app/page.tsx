@@ -2,7 +2,6 @@ import React from 'react'
 import Carrusel from './components/Carrusel'
 import Secciones from "@/app/components/Secciones"
 import LogoCarousel from './components/empresas-carrusel'
-import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 
 function Page() {
   return (
