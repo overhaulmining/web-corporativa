@@ -10,21 +10,21 @@ function SeccionServices() {
 
   // Imágenes para los carruseles de las tarjetas de servicios
   const equipmentCertificationImages = [
-    <Image key="crane" src="/img/maquinaria-grua.jpg" alt="Grúa" className="h-full w-full object-cover" />,
-    <Image key="crane" src="/img/persona-mina.jpeg" alt="persona-mina" className="h-full w-full object-cover" />,
-    <Image key="crane" src="/img/mina.jpeg" alt="Grúa" className="h-full w-full object-cover" />
+    <Image key="crane" src="/img/maquinaria-grua.jpg" alt="Grúa" className="h-full w-full object-cover" width={400} height={400}/>,
+    <Image key="crane" src="/img/persona-mina.jpeg" alt="persona-mina" className="h-full w-full object-cover" width={400} height={400}/>,
+    <Image key="crane" src="/img/mina.jpeg" alt="Grúa" className="h-full w-full object-cover" width={400} height={400}/>
   ];
 
   const personnelCertificationImages = [
-    <Image key="operator" src="/img/izaje.jpeg" alt="Operador" className="h-full w-full object-cover" />,
-    <Image key="operator" src="/img/izaje2.jpg" alt="Operador" className="h-full w-full object-cover" />,
-    <Image key="operator" src="/img/izaje3.jpg" alt="Operador" className="h-full w-full object-cover" />
+    <Image key="operator" src="/img/izaje.jpeg" alt="Operador" className="h-full w-full object-cover" width={400} height={400}/>,
+    <Image key="operator" src="/img/izaje2.jpg" alt="Operador" className="h-full w-full object-cover" width={400} height={400}/>,
+    <Image key="operator" src="/img/izaje3.jpg" alt="Operador" className="h-full w-full object-cover" width={400} height={400}/>
   ];
 
   const maintenanceImages = [
-    <Image key="maintenance" src="/img/mantenimiento1.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />,
-    <Image key="maintenance" src="/img/mantenimiento2.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />,
-    <Image key="maintenance" src="/img/mantenimiento3.jpg" alt="Mantenimiento" className="h-full w-full object-cover" />
+    <Image key="maintenance" src="/img/mantenimiento1.jpg" alt="Mantenimiento" className="h-full w-full object-cover" width={400} height={400}/>,
+    <Image key="maintenance" src="/img/mantenimiento2.jpg" alt="Mantenimiento" className="h-full w-full object-cover" width={400} height={400}/>,
+    <Image key="maintenance" src="/img/mantenimiento3.jpg" alt="Mantenimiento" className="h-full w-full object-cover" width={400} height={400}/>
   ];
 
   return (

@@ -37,6 +37,10 @@ const Navbar = () => {
               <Phone className="w-5 h-5" />
               <span className='text-sm'>Contacto</span>
             </Link>
+              <Link href="/consultar-certificados" className="flex items-center space-x-1 hover:text-gray-500">
+              <Book className="w-5 h-5" />
+              <span className='text-sm'>Certificado</span>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
