@@ -12,7 +12,7 @@ export default function Home() {
             </button>
             </Link>
             <br />
-            <Link href={"/consultar-certificados/cert-equipo"}>
+            <Link href={"/consultar-certificados/cert-equipos"}>
             <button type="button" className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none dark:focus:ring-blue-800">
                 Certificaciones de equipo 
             </button>
