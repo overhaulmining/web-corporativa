@@ -23,6 +23,28 @@ const formatDate = (dateString) => {
   });
 };
 
+import Link from 'next/link'; // Usamos el Link de Next.js
+import { FaArrowLeft } from 'react-icons/fa'; // Ícono de flecha izquierda de react-icons
+
+const BackLink = () => {
+  return (
+    <Link
+      href="/consultar-certificados" // Cambia esto por la ruta deseada, ej. "/consultar-certificados"
+      style={{
+        textDecoration: 'none',
+        color: 'blue',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+      }}
+    >
+      <FaArrowLeft /> {/* Ícono de flecha */}
+      Atrás
+    </Link>
+  );
+};
+
+
 export default function CertificadosTable() {
   const [dni, setDni] = useState("");
   const [nombres, setNombres] = useState("");
@@ -33,6 +55,7 @@ export default function CertificadosTable() {
   const [search, setSearch] = useState("");
   const [userInfo, setUserInfo] = useState(null);
   const [activeTab, setActiveTab] = useState("dni");
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   const fetchData = async () => {
     // Validar antes de enviar
@@ -44,10 +67,10 @@ export default function CertificadosTable() {
       alert("Por favor, complete al menos nombres y apellido paterno.");
       return;
     }
-
+  
     setLoading(true);
     try {
-      let url = `http://127.0.0.1:8000/api/consulta-certificados/personas?`;
+      let url = `${API_URL}/api/consulta-certificados/personas?`;
       if (activeTab === "dni") {
         url += `dni=${encodeURIComponent(dni)}`;
       } else {
@@ -56,38 +79,51 @@ export default function CertificadosTable() {
           url += `&apellido_materno=${encodeURIComponent(apellidoMaterno)}`;
         }
       }
-
+  
       const res = await fetch(url, {
         method: "GET",
         headers: {
           "Accept": "application/json",
         },
       });
-
+  
       if (!res.ok) {
         const errorData = await res.json();
         throw new Error(errorData.message || `Error HTTP: ${res.status}`);
       }
-
+  
       const result = await res.json();
-      setData(result.certificados || result);
-      if (result && result.length > 0) {
+      // Asegurarnos de que siempre tengamos un array, incluso si está vacío
+      const certificados = Array.isArray(result.certificados) 
+        ? result.certificados 
+        : Array.isArray(result) 
+          ? result 
+          : [];
+      
+      setData(certificados);
+      
+      if (certificados.length > 0) {
         setUserInfo({
           nombre: [
-            result[0].apellido_paterno,
-            result[0].apellido_materno,
-            result[0].primer_nombre,
-            result[0].segundo_nombre
+            certificados[0].apellido_paterno,
+            certificados[0].apellido_materno,
+            certificados[0].primer_nombre,
+            certificados[0].segundo_nombre
           ]
             .filter(Boolean)
             .join(" "),
-          fotocheck: result[0].fotocheck || null,
-          dni: result[0].dni || dni
+          fotocheck: certificados[0].fotocheck || null,
+          dni: certificados[0].dni || dni
         });
+      } else {
+        setUserInfo(null); // Resetear userInfo si no hay resultados
+        alert("No se encontraron certificados para esta búsqueda.");
       }
     } catch (error) {
       console.error("Error en la consulta:", error);
-      alert(error.message);
+      setData([]); // Asegurar que data sea un array vacío en caso de error
+      setUserInfo(null);
+      alert(error.message || "Ocurrió un error al realizar la búsqueda");
     } finally {
       setLoading(false);
     }
@@ -103,7 +139,7 @@ export default function CertificadosTable() {
     setSearch("");
     setActiveTab("dni");
   };
-
+  // COLUMNAS DATOS
   const columns = [
     { accessorKey: "nombre_curso", header: "Certificado" },
     { accessorKey: "certificadora", header: "Empresa Certificadora" },
@@ -113,22 +149,28 @@ export default function CertificadosTable() {
       cell: ({ row }) => formatDate(row.original.fecha_servicio),
     },
     {
-      accessorKey: "certificado",
-      header: "PDF",
+      accessorKey: "src",
+      header: "PDFs",
       cell: ({ row }) => {
-        const pdfPath = row.original.certificado;
+        const pdfPath = row.original.src;
         if (!pdfPath) return "Sin PDF";
-
-        const fullUrl = `${BASE_URL}${pdfPath}`;
-
+    
+        const fullUrl = `${API_URL}/storage/${pdfPath}`;
+        console.log("URL generada:", fullUrl);
+    
+        const handleDownload = () => {
+          // Crear un enlace temporal y simular un clic
+          const link = document.createElement("a");
+          link.href = fullUrl;
+          link.download = pdfPath.split("/").pop() || "certificado.pdf"; // Nombre del archivo
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          console.log("Descarga iniciada para:", fullUrl);
+        };
+    
         return (
-          <a
-            href={fullUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            download={pdfPath}
-            className="text-blue-600 hover:text-blue-800"
-          >
+          <button onClick={handleDownload} className="text-blue-600 hover:text-blue-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -143,7 +185,7 @@ export default function CertificadosTable() {
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               />
             </svg>
-          </a>
+          </button>
         );
       },
     },
@@ -161,6 +203,8 @@ export default function CertificadosTable() {
 
   return (
     <div className="max-w-4xl mx-auto p-6">
+      <BackLink/>
+      <h2 className="font-bold text-2xl mb-2">Certificaciones de Personal</h2>
       {!data.length ? (
         <div className="mb-4">
           {/* Tabs */}
