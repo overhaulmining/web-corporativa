@@ -14,6 +14,7 @@ function SubNavbar() {
                         <li className="hover:text-blue-500 transition-colors duration-300">Cursos END</li>
                         <li className="hover:text-blue-500 transition-colors duration-300">Nosotros</li>
                         <li className="hover:text-blue-500 transition-colors duration-300">Contáctanos</li>
+                        
                     </ul>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { Menu, X,  Book, Users, Phone } from 'lucide-react';
+import { Menu, X, Book, Users, Phone } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -15,8 +15,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex gap-5 items-center space-x-2">
-            <Image src="/logo.png" alt="Logo" width={100} height={100} priority quality={100}/>
-            <Image src="/cert_iso-remove.png" alt="Certificación ISO" width={200} height={100} quality={100} priority/>
+            <Image src="/logo.png" alt="Logo" width={100} height={100} priority quality={100} />
+            <Image src="/cert_iso-remove.png" alt="Certificación ISO" width={200} height={100} quality={100} priority />
           </div>
 
           {/* Desktop Menu */}
@@ -28,7 +28,7 @@ const Navbar = () => {
             <Link href="/servicios" className="flex items-center space-x-1 hover:text-gray-500">
               <span className='text-sm'>Servicios</span>
             </Link>
-            
+
             <Link href="#nosotros" className="flex items-center space-x-1 hover:text-gray-500">
               <Users className="w-5 h-5" />
               <span className='text-sm'>Nosotros</span>
@@ -37,10 +37,11 @@ const Navbar = () => {
               <Phone className="w-5 h-5" />
               <span className='text-sm'>Contacto</span>
             </Link>
-              <Link href="/consultar-certificados" className="flex items-center space-x-1 hover:text-gray-500">
+            <Link href="/consultar-certificados" className="flex items-center space-x-1 text-white bg-blue-500 rounded-md py-3 px-4 hover:bg-blue-600">
               <Book className="w-5 h-5" />
-              <span className='text-sm'>Certificado</span>
+              <span className='text-sm'>Consultar certificado</span>
             </Link>
+
           </div>
 
           {/* Mobile menu button */}
@@ -94,6 +95,13 @@ const Navbar = () => {
             >
               <Phone className="w-5 h-5" />
               <span>Contacto</span>
+            </Link>
+            <Link
+              href="/consultar-certificados"
+              className="flex items-center space-x-1 text-white bg-blue-500 rounded-md py-3 px-4 hover:bg-blue-600"
+            >
+              <Book className="w-5 h-5" />
+              <span>Consultar certificado</span>
             </Link>
           </div>
         </div>
