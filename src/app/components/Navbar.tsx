@@ -8,10 +8,9 @@ function Navbar() {
     useEffect(() => {
        setIsMenuOpen(false);
     }
-    , );
+    , []);
 
     return (
-    
         <div>
             <div className="bg-gray-900 text-white text-xs w-full px-5 ">
                 <div className="flex justify-between items-center max-w-6xl m-auto py-1">
