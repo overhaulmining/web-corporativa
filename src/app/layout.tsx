@@ -3,7 +3,6 @@ import Navbar from "@/app/components/Navbar";
 import Navegacion from "./components/Navegacion";
 import { Providers } from "./providers";
 import Footer from "./components/Footer";
-import Image from 'next/image';
 
 export default function RootLayout({
   children,
