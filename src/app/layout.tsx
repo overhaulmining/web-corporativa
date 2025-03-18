@@ -1,10 +1,9 @@
-
 import "./globals.css";
-import Navbar from "@/app/components/Navbar"
+import Navbar from "@/app/components/Navbar";
 import Navegacion from "./components/Navegacion";
 import { Providers } from "./providers";
 import Footer from "./components/Footer";
-
+import Image from 'next/image';
 
 export default function RootLayout({
   children,
@@ -13,6 +12,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Mina de Servicios | Ofrecemos soluciones en minería</title>
+        <meta
+          name="description"
+          content="Descubre los servicios especializados que ofrece nuestra mina, con tecnología de punta y compromiso con el medio ambiente."
+        />
+      </head>
       <body>
         <Providers>
           <div className="fixed w-full z-50">
@@ -23,7 +29,7 @@ export default function RootLayout({
             {children}
           </div>
           <div className="relative top-28 w-full bottom-0 z-50">
-          <Footer />
+            <Footer />
           </div>
         </Providers>
       </body>

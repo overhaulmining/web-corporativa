@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image'; // Importar el componente Image de Next.js
+import Image from 'next/image';
 
 const images = [
     {
@@ -17,12 +17,12 @@ const images = [
     {
         url: "/img/trabajo-campo.png",
         title: "Trabajo Efectivo",
-        description: "Eficiencia y rapides"
+        description: "Eficiencia y rapidez"
     },
     {
         url: "/image-carrusel/image4.png",
         title: "Equipo especializado",
-        description: "Servicio rapido y eficiente"
+        description: "Servicio rápido y eficiente"
     }
 ];
 
@@ -56,12 +56,11 @@ const Carousel = () => {
         }
     };
 
-    // Habilitar la transición nuevamente después de 500ms (ajustamos el tiempo para que coincida con la duración de la transición)
     useEffect(() => {
         if (isTransitioning) {
             const timer = setTimeout(() => {
                 setIsTransitioning(false);
-            }, 500); // Este tiempo debe coincidir con la duración de la transición (500ms)
+            }, 500);
             return () => clearTimeout(timer);
         }
     }, [isTransitioning]);
@@ -95,9 +94,13 @@ const Carousel = () => {
                                 filter: 'brightness(60%)' // Reducir el brillo para darle más opacidad
                             }}
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                            <p className='text-5xl text-white font-extrabold'>{image.title}</p>
-                            <p className='text-3xl text-white font-bold'>{image.description}</p>
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-8">
+                            <p className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-extrabold'>
+                                {image.title}
+                            </p>
+                            <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl text-white font-bold'>
+                                {image.description}
+                            </p>
                         </div>
                     </div>
                 ))}
@@ -119,7 +122,7 @@ const Carousel = () => {
                 <ChevronRight className="w-6 h-6" />
             </button>
 
-            {/* Indicators */}
+            {/* Indicators
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                 {images.map((_, index) => (
                     <button
@@ -131,7 +134,7 @@ const Carousel = () => {
                             }`}
                     />
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 };

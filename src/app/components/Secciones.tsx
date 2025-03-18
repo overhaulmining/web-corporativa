@@ -146,7 +146,7 @@ function Secciones() {
                 <PhoneCall className="w-8 h-8 text-blue-600" />
                 <div>
                   <h3 className="font-semibold text-gray-900">Teléfono</h3>
-                  <p className="text-gray-600">+51 123 456 789</p>
+                  <p className="text-gray-600">+51 976 225 732</p>
                 </div>
               </div>
 
@@ -155,7 +155,7 @@ function Secciones() {
                 <Mail className="w-8 h-8 text-blue-600" />
                 <div>
                   <h3 className="font-semibold text-gray-900">Email</h3>
-                  <p className="text-gray-600">info@empresa.com</p>
+                  <p className="text-gray-600">ricardo.luycho@overhaulmining.com</p>
                 </div>
               </div>
 
@@ -164,7 +164,7 @@ function Secciones() {
                 <Truck className="w-8 h-8 text-blue-600" />
                 <div>
                   <h3 className="font-semibold text-gray-900">Oficina Principal</h3>
-                  <p className="text-gray-600">Av. Industrial 123, Lima</p>
+                  <p className="text-gray-600">Av. Manco Capac 1346 Los Baños del Inca - Cajamarca</p>
                 </div>
               </div>
             </div>
