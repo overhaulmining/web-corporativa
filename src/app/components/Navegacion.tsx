@@ -10,7 +10,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-gradient-to bg-gray-200 text-gray-800 py-3 w-full">
+    <nav className="bg-gradient-to bg-gray-200 text-gray-800 py-3 w-full ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -37,10 +37,17 @@ const Navbar = () => {
               <Phone className="w-5 h-5" />
               <span className='text-sm'>Contacto</span>
             </Link>
+            <Link
+              href="/registroParticipante"
+              className="flex items-center space-x-1 "
+            >
+              <span className='text-sm'>Registro de participante</span>
+            </Link>
             <Link href="/consultar-certificados" className="flex items-center space-x-1 text-white bg-blue-500 rounded-md py-3 px-4 hover:bg-blue-600">
               <Book className="w-5 h-5" />
               <span className='text-sm'>Consultar certificado</span>
             </Link>
+
 
           </div>
 
@@ -102,6 +109,13 @@ const Navbar = () => {
             >
               <Book className="w-5 h-5" />
               <span>Consultar certificado</span>
+            </Link>
+            <Link
+              href="/registroParticipante"
+              className="flex items-center space-x-1 text-white bg-blue-500 rounded-md py-3 px-4 hover:bg-blue-600"
+            >
+              <Book className="w-5 h-5" />
+              <span>Registro de participante</span>
             </Link>
           </div>
         </div>
