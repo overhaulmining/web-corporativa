@@ -28,6 +28,9 @@ const Navbar = () => {
             <Link href="/servicios" className="flex items-center space-x-1 hover:text-gray-500">
               <span className='text-sm'>Servicios</span>
             </Link>
+            <Link href="/cursos" className="flex items-center space-x-1 hover:text-gray-500">
+              <span className='text-sm'>CURSOS</span> 
+            </Link>
 
             <Link href="#nosotros" className="flex items-center space-x-1 hover:text-gray-500">
               <Users className="w-5 h-5" />
